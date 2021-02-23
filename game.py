@@ -1,6 +1,7 @@
+import random
 
-RANKS = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
-SUITS = ['♠️', '♣️', '♥️', '♦️']
+# RANKS = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
+# SUITS = ['♠️', '♣️', '♥️', '♦️']
 
 
 class Card:
@@ -14,6 +15,8 @@ class Card:
 
 class Deck:
     def __init__(self, ranks, suits):
+        ranks = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
+        suits = ['♠️', '♣️', '♥️', '♦️']
         self.cards = []
         for rank in ranks:
             for suit in suits:
@@ -23,13 +26,14 @@ class Deck:
     #TODO method to shuffle the deck
     # takes self and returns self with self.cards rearranged randomly
     def shuffle_deck(self):
-        pass
+        random.shuffle(self.cards)
+        # return self.cards
 
     # TODO method to deal the top card of the deck to a player
     # takes a player and a deck and adds the top card from the deck to a player's hand
     def deal_card(self):
-        pass
-
+        card_draw = self.cards.pop()
+        return card_draw
 
 class Player:
     def __init__(self, name):
@@ -44,11 +48,15 @@ class Game:
         self.player1 = Player(name1)
         self.Player2 = Player(name2)
         self.winner = False
-
+        
     # TODO use deal_card() method from Deck class to deal 7 cards to each player
-    def deal_hands():
-        pass
+    def deal_hands(self):
+        for i in range(7):
+            self.deck.deal_card()
+            
 
     # TODO create turn action in which player asks for a card and goes fish according to the rules
     # Determine if the turn was a winning/losing turn
     def turn():
+
+        pass
